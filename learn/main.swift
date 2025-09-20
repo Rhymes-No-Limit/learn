@@ -1,6 +1,5 @@
 import Foundation
 
-func lern() -> Bool {
-    
-    return false
-}
+func countCharacter(in text: String) -> Int { text.count }
+
+func reverseString(_ text: String) -> String { String(text.reversed()) }
