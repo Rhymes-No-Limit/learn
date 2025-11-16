@@ -88,3 +88,11 @@ func compressString(_ text: String) -> String {
 func isMirror(_ text: String) -> Bool {
     text.lowercased() == String(text.lowercased().reversed())
 }
+
+func removeVowels(_ text: String) -> String {
+    text.lowercased().filter { !"aeiou".contains($0)}
+}
+
+func commonLetters(between first: String, and second: String) -> Set<Character> {
+    Set(first.lowercased()).intersection(Set(second.lowercased()))
+}
