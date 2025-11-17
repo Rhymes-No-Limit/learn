@@ -96,3 +96,12 @@ func removeVowels(_ text: String) -> String {
 func commonLetters(between first: String, and second: String) -> Set<Character> {
     Set(first.lowercased()).intersection(Set(second.lowercased()))
 }
+
+func secondLargestNumber(in array: [Int]) -> Int? {
+    guard array.count > 1 else { return nil }
+    guard Set(array).count > 1 else { return nil }
+    
+    let maxValue = array.max()
+    
+    return array.filter { $0 != maxValue }.max()
+}
