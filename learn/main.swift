@@ -105,3 +105,52 @@ func secondLargestNumber(in array: [Int]) -> Int? {
     
     return array.filter { $0 != maxValue }.max()
 }
+
+func pairsWithSum(_ numbers: [Int], _ target: Int) -> [[Int]] {
+    var pairs: [[Int]] = []
+    
+    for number in 0..<numbers.count {
+        let element = numbers[number]
+        
+        for num in (number + 1)..<numbers.count {
+            let secondElement = numbers[num]
+            
+            if element + secondElement == target && !pairs.contains([element, secondElement]){
+                pairs.append([element, secondElement])
+            }
+        }
+    }
+    return pairs
+}
+
+func firstNegativeIndex(in numbers: [Int]) -> Int? {
+    numbers.firstIndex { $0 < 0 }
+}
+
+func firstLargeEvenIndex(in number: [Int]) -> Int? {
+    number.firstIndex { $0 % 2 == 0 && $0 > 10 }
+}
+
+func duplicateNumbers(in array: [Int]) -> [Int] {
+    for num in array {
+        if array.filter({$0 == num}).count > 1 {
+            return [num]
+        }
+    }
+    return []
+}
+
+func duplicateNumbersDictionary(in array: [Int]) -> [Int] {
+    var duplicates: [Int: Int] = [:]
+    var result: [Int] = []
+    
+    for num in array {
+        duplicates[num, default: 0] += 1
+    }
+    
+    for (key, value) in duplicates where value > 1 {
+        result.append(key)
+    }
+    return result
+    
+}
